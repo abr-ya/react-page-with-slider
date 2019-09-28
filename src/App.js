@@ -2,32 +2,59 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-//import Grid from 'react-bootstrap/lib/Grid';
-//import Row from 'react-bootstrap/lib/Row';
-//import Col from 'react-bootstrap/lib/Col';
-//import styled from 'styled-components';
+import Container from 'react-bootstrap/Container';
+//import Grid from 'react-bootstrap/Grid';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import styled from 'styled-components';
+
+import Header from './components/Header';
+import Menu from './components/Menu';
+import Main from './components/Main';
+
+const bgUrl = process.env.PUBLIC_URL + '/img/bg.png';
+
+const HeaderWrapper = styled.header`
+    width: 100%;
+    height: 50px;
+    background-color: #242424;
+    opacity: 0.8;
+`
+
+const MenuWrapper = styled.header`
+    height: 90px;
+    padding-top: 20px;
+`
+
+const MainWrapper = styled.main`
+    height: 600px;
+    padding-top: 130px;
+    background: url(${bgUrl}) no-repeat;
+    background-size: cover;
+`
 
 class App extends Component {
     render() {
         return (
-            <h1>Hello, world!</h1>
-            // <div className="wrapper">
-            //     <SayFullName name="Ivan" surname="Ivanov" link="vk.com" />
-            //     <SayFullName name="Anna" surname="Petrova" link="vk.com" />
-            //     <SayFullName name="Vasya" surname="Prosto" link="vk.com" />
-            // </div>
+            <div className="App">
+                <HeaderWrapper>
+                    <Container>
+                        <Header />
+                    </Container>                    
+                </HeaderWrapper>
+                <MenuWrapper>
+                    <Container>
+                        <Menu />
+                    </Container>                    
+                </MenuWrapper>
+                <MainWrapper>
+                    <Container>
+                        <Main />
+                    </Container>                    
+                </MainWrapper>
+            </div>
         );
     }
-}
-
-function SayFullName(props) {
-    return (
-            <div>
-                    <h1> Моё имя {props.name}, фамилия - {props.surname}</h1>
-                    <a href = {props.link}> Ссылка на мой профиль </a>                        
-            </div>
-
-    )
 }
 
 export default App;
